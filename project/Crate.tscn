@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4qiarxlqdxjv"]
+
+[ext_resource type="Texture2D" uid="uid://cpdpinkpc0xck" path="res://Sprites/Crates/crate_02.png" id="1"]
+[ext_resource type="Script" path="res://Crate.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://drynjcdoe4t52" path="res://Sprites/Crates/crate_12.png" id="3"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Crate" type="Node2D" groups=["crates"]]
+script = ExtResource("2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
