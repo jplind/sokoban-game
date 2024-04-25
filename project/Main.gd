@@ -17,11 +17,13 @@ func _process(delta):
 		for child in current_level.get_children():
 			child.queue_free()
 		menuScreen.show()
+		levels.get_children()[0].show()
 
 func _ready():
 	menuScreen.levelSelected.connect(playLevel)
 
 func playLevel(level):
+	levels.get_children()[0].hide()
 	map = levels.get_child(level)
 	map.show()
 	SetupPlayer()

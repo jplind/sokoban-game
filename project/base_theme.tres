@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ryie4pc2a2dg"]
+
+[ext_resource type="FontFile" uid="uid://bxgsb78rbf1ny" path="res://GamjaFlower-Regular.ttf" id="1_ipqca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sckmj"]
+bg_color = Color(0.398098, 0.511786, 0.986568, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27oog"]
+bg_color = Color(0.204053, 0.23507, 0.908747, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld73c"]
+bg_color = Color(0.204053, 0.23507, 0.908747, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3a0s"]
+bg_color = Color(0, 0.0823529, 0.192157, 0.52549)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_ipqca")
+Button/styles/disabled = null
+Button/styles/hover = SubResource("StyleBoxFlat_sckmj")
+Button/styles/normal = SubResource("StyleBoxFlat_27oog")
+Button/styles/pressed = SubResource("StyleBoxFlat_ld73c")
+Panel/styles/panel = SubResource("StyleBoxFlat_y3a0s")

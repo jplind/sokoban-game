@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0qkb8lljkivt"]
+[gd_scene load_steps=10 format=3 uid="uid://d0qkb8lljkivt"]
 
-[ext_resource type="PackedScene" path="res://Level2.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dh6wqxomgore7" path="res://Level2.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://di5drs577xwis" path="res://Player.tscn" id="2"]
 [ext_resource type="Script" path="res://Main.gd" id="3"]
 [ext_resource type="Script" path="res://PlayerController.gd" id="4"]
 [ext_resource type="Script" path="res://MenuScreen.gd" id="4_73yip"]
 [ext_resource type="PackedScene" uid="uid://c4qiarxlqdxjv" path="res://Crate.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://Level1.tscn" id="6"]
+[ext_resource type="Theme" uid="uid://ryie4pc2a2dg" path="res://base_theme.tres" id="5_4d5y4"]
+[ext_resource type="PackedScene" uid="uid://cn8r26ovjmoeu" path="res://Level1.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://uthpchilgeue" path="res://background_level.tscn" id="7_i7vxa"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
@@ -27,22 +29,40 @@ theme_override_constants/margin_bottom = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuScreen/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuScreen/MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MenuScreen/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MenuScreen/MarginContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("5_4d5y4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuScreen/MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Level1Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level1Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+focus_mode = 0
+theme = ExtResource("5_4d5y4")
 text = "Level 1"
 
-[node name="Level2Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level2Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+focus_mode = 0
+theme = ExtResource("5_4d5y4")
 text = "Level 2"
 
-[node name="Level3Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level3Button" type="Button" parent="MenuScreen/MarginContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+focus_mode = 0
 text = "Level 3"
 
 [node name="TempSpacer" type="Control" parent="MenuScreen/MarginContainer/HBoxContainer"]
@@ -55,16 +75,16 @@ script = ExtResource("4")
 [node name="Levels" type="Node" parent="."]
 unique_name_in_owner = true
 
+[node name="BackgroundLevel" parent="Levels" instance=ExtResource("7_i7vxa")]
+
 [node name="Level1" parent="Levels" instance=ExtResource("6")]
 visible = false
-layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 8, 1, 0, 9, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 262144, 1, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 327680, 1, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 393216, 1, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 1, 0, 524297, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589832, 1, 0, 589833, 1, 0)
 
 [node name="Level2" parent="Levels" instance=ExtResource("1")]
 visible = false
-layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196617, 1, 0, 262144, 1, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 1, 0, 327680, 1, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 327689, 1, 0, 393216, 1, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 1, 0, 458752, 1, 0, 458761, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0)
 
 [node name="CurrentLevel" type="Node" parent="."]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="MenuScreen/MarginContainer/HBoxContainer/VBoxContainer/Level1Button" to="MenuScreen" method="_on_level_1_button_pressed"]
-[connection signal="pressed" from="MenuScreen/MarginContainer/HBoxContainer/VBoxContainer/Level2Button" to="MenuScreen" method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/HBoxContainer/CenterContainer/VBoxContainer/Level1Button" to="MenuScreen" method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/HBoxContainer/CenterContainer/VBoxContainer/Level2Button" to="MenuScreen" method="_on_level_2_button_pressed"]

@@ -1,6 +1,7 @@
 extends TileMap
 class_name Map
 
+@export var playable : bool
 var crates : Dictionary
 @onready var walls = $Walls
 @onready var checkpoints = $Checkpoints
@@ -8,8 +9,9 @@ var crates : Dictionary
 @onready var playerPosition = $Player
 
 func _ready():
-	cratePositions.visible = false
-	playerPosition.visible = false
+	if playable:
+		cratePositions.visible = false
+		playerPosition.visible = false
 
 func isEmpty(tilePosition : Vector2i):
 	return !crates.has(tilePosition) and walls.get_cell_source_id(0, tilePosition) == -1
