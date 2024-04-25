@@ -5,6 +5,8 @@ var map : Map
 var moveHistory = []
 
 func _process(_delta):
+	if not player:
+		return
 	if player.walking:
 		return
 	
