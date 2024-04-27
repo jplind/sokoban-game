@@ -8,21 +8,27 @@ extends Node
 @onready var menuScreen = $MenuScreen
 @onready var levels = %Levels
 @onready var current_level = %CurrentLevel
+@onready var scene_transition = %SceneTransition
 
 var player : Player
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
+		scene_transition.fade_out()
+		await scene_transition.animation_finished
 		map.hide()
 		for child in current_level.get_children():
 			child.queue_free()
 		menuScreen.show()
 		levels.get_children()[0].show()
+		scene_transition.fade_in()
 
 func _ready():
 	menuScreen.levelSelected.connect(playLevel)
 
 func playLevel(level):
+	scene_transition.fade_out()
+	await scene_transition.animation_finished
 	levels.get_children()[0].hide()
 	map = levels.get_child(level)
 	map.show()
@@ -30,6 +36,7 @@ func playLevel(level):
 	SetupPlayerController()
 	SetupCrates()
 	menuScreen.hide()
+	scene_transition.fade_in()
 
 func SetupPlayer():
 	player = playerScene.instantiate()

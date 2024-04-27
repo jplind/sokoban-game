@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0qkb8lljkivt"]
+[gd_scene load_steps=11 format=3 uid="uid://d0qkb8lljkivt"]
 
 [ext_resource type="PackedScene" uid="uid://dh6wqxomgore7" path="res://Level2.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://di5drs577xwis" path="res://Player.tscn" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://ryie4pc2a2dg" path="res://base_theme.tres" id="5_4d5y4"]
 [ext_resource type="PackedScene" uid="uid://cn8r26ovjmoeu" path="res://Level1.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://uthpchilgeue" path="res://background_level.tscn" id="7_i7vxa"]
+[ext_resource type="PackedScene" uid="uid://bdf8j5vtyjwow" path="res://scene_transition.tscn" id="10_np1oq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
@@ -20,7 +21,8 @@ script = ExtResource("4_73yip")
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuScreen"]
 custom_minimum_size = Vector2(640, 640)
-offset_right = 40.0
+offset_right = 640.0
+offset_bottom = 640.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -68,6 +70,9 @@ text = "Level 3"
 [node name="TempSpacer" type="Control" parent="MenuScreen/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
+
+[node name="SceneTransition" parent="MenuScreen" instance=ExtResource("10_np1oq")]
+unique_name_in_owner = true
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("4")
